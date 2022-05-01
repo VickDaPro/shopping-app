@@ -1,20 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  Button,
+  View,
+  Alert,
+  SafeAreaView,
+} from "react-native";
 
 export default function App() {
+  let x = 1;
+  console.log("App executed");
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
+      <Button
+        title="Click me"
+        onPress={() =>
+          Alert.alert("Having Fun?", "Want more?", [
+            { text: "Yes", onPress: () => console.log("Yes Pressed") },
+            { text: "No", onPress: () => console.log("No Pressed") },
+          ])
+        }
+      />
+      <Text>Hello World!</Text>
+      <Text>Hello World!</Text>
+      <Image source={require("./assets/favicon.png")} />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
