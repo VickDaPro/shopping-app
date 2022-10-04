@@ -6,7 +6,7 @@ import AppText from "./app/components/AppText";
 
 export default function App() {
   console.log("App executed");
-  return <ViewImageScreen />;
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({

@@ -1,6 +1,7 @@
 import React from "react";
 import { ImageBackground, StyleSheet, View, Image, Text } from "react-native";
 import NativeStatusBarManager from "react-native/Libraries/Components/StatusBar/NativeStatusBarManagerAndroid";
+import AppButton from "../components/AppButton";
 
 function WelcomeScreen(props) {
   backgroundImage = require("../assets/background.jpg");
@@ -11,7 +12,7 @@ function WelcomeScreen(props) {
         <Image style={styles.logo} source={logoImage} />
         <Text>Sell What You Don't Need</Text>
       </View>
-      <View style={styles.loginButton}></View>
+      <AppButton title="Login" onPress={() => console.log("Pressed!")} />
       <View style={styles.registerButton}></View>
     </ImageBackground>
   );
