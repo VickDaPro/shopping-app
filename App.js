@@ -6,7 +6,6 @@ import AppText from "./app/components/AppText";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
-  console.log("App executed");
   return <ListingDetailsScreen />;
 }
 
