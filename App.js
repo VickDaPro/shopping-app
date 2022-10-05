@@ -3,10 +3,11 @@ import { StyleSheet, Text, View, SafeAreaView, Platform } from "react-native";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import AppText from "./app/components/AppText";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
   console.log("App executed");
-  return <WelcomeScreen />;
+  return <ListingDetailsScreen />;
 }
 
 const styles = StyleSheet.create({
