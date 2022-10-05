@@ -3,9 +3,12 @@ import React from "react";
 
 import colors from "../config/colors";
 
-const AppButton = ({ title, onPress }) => {
+const AppButton = ({ title, onPress, color = "primary" }) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.button, { backgroundColor: colors[color] }]}
+      onPress={onPress}
+    >
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
@@ -21,6 +24,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     padding: 15,
+    marginVertical: 10,
   },
   text: {
     color: "#fff",

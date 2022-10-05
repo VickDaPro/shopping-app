@@ -7,13 +7,23 @@ function WelcomeScreen(props) {
   backgroundImage = require("../assets/background.jpg");
   logoImage = require("../assets/logo-red.png");
   return (
-    <ImageBackground style={styles.backgound} source={backgroundImage}>
+    <ImageBackground
+      style={styles.backgound}
+      source={backgroundImage}
+      blurRadius={10}
+    >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={logoImage} />
-        <Text>Sell What You Don't Need</Text>
+        <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
-      <AppButton title="Login" onPress={() => console.log("Pressed!")} />
-      <View style={styles.registerButton}></View>
+      <View style={styles.buttonsContainer}>
+        <AppButton title="Login" onPress={() => console.log("Pressed!")} />
+        <AppButton
+          title="Register"
+          onPress={() => console.log("Pressed!")}
+          color="secondary"
+        />
+      </View>
     </ImageBackground>
   );
 }
@@ -24,15 +34,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  loginButton: {
+  buttonsContainer: {
     width: "100%",
-    height: 70,
-    backgroundColor: "#fc5c65",
-  },
-  registerButton: {
-    width: "100%",
-    height: 70,
-    backgroundColor: "#4ecdc4",
+    padding: 20,
   },
   logo: {
     width: 100,
@@ -42,6 +46,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 70,
     alignItems: "center",
+  },
+  tagline: {
+    fontSize: 25,
+    fontWeight: "600",
+    paddingVertical: 20,
   },
 });
 
