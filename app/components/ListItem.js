@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import React from "react";
 
 import AppText from "./AppText";
@@ -8,7 +8,7 @@ const ListItem = ({ image, title, subTitle }) => {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={image} />
-      <View>
+      <View style={{ justifyContent: "center" }}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
       </View>
