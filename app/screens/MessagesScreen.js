@@ -10,25 +10,25 @@ const MessagesScreen = () => {
     {
       id: 1,
       title: "Ram",
-      desc: "d1",
+      desc: "Mai hu Ram",
       image: require("../assets/mosh.jpg"),
     },
     {
       id: 2,
       title: "Shyam",
-      desc: "d2",
+      desc: "Aur mai Shyam",
       image: require("../assets/mosh.jpg"),
     },
     {
       id: 3,
       title: "Gopal",
-      desc: "d3",
+      desc: "Mera naam hai Gopal",
       image: require("../assets/mosh.jpg"),
     },
     {
       id: 4,
       title: "Laxman",
-      desc: "d4",
+      desc: "Mai Laxman hu, Ram ka bhai",
       image: require("../assets/mosh.jpg"),
     },
   ];
