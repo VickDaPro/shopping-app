@@ -1,42 +1,35 @@
 import React from "react";
 import { ImageBackground, StyleSheet, View, Image, Text } from "react-native";
-import NativeStatusBarManager from "react-native/Libraries/Components/StatusBar/NativeStatusBarManagerAndroid";
 import AppButton from "../components/AppButton";
 
 function WelcomeScreen(props) {
-  backgroundImage = require("../assets/background.jpg");
-  logoImage = require("../assets/logo-red.png");
   return (
     <ImageBackground
-      style={styles.backgound}
-      source={backgroundImage}
       blurRadius={10}
+      style={styles.background}
+      source={require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={logoImage} />
+        <Image style={styles.logo} source={require("../assets/logo-red.png")} />
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" onPress={() => console.log("Pressed!")} />
-        <AppButton
-          title="Register"
-          onPress={() => console.log("Pressed!")}
-          color="secondary"
-        />
+        <AppButton title="Login" />
+        <AppButton title="Register" color="secondary" />
       </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  backgound: {
+  background: {
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
   },
   buttonsContainer: {
-    width: "100%",
     padding: 20,
+    width: "100%",
   },
   logo: {
     width: 100,

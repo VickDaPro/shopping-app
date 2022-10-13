@@ -1,56 +1,68 @@
-import { StyleSheet, FlatList } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
 
-import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
+import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
-const MessagesScreen = () => {
-  const data = [
-    {
-      id: 1,
-      title: "Ram",
-      desc: "Mai hu Ram",
-      image: require("../assets/mosh.jpg"),
-    },
-    {
-      id: 2,
-      title: "Shyam",
-      desc: "Aur mai Shyam",
-      image: require("../assets/mosh.jpg"),
-    },
-    {
-      id: 3,
-      title: "Gopal",
-      desc: "Mera naam hai Gopal",
-      image: require("../assets/mosh.jpg"),
-    },
-    {
-      id: 4,
-      title: "Laxman",
-      desc: "Mai Laxman hu, Ram ka bhai",
-      image: require("../assets/mosh.jpg"),
-    },
-  ];
+const initialMessages = [
+  {
+    id: 1,
+    title: "T1",
+    description: "D1",
+    image: require("../assets/mosh.jpg"),
+  },
+  {
+    id: 2,
+    title: "T2",
+    description: "D2",
+    image: require("../assets/mosh.jpg"),
+  },
+];
+
+function MessagesScreen(props) {
+  const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleDelete = (message) => {
+    // Delete the message from messages
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
 
   return (
     <Screen>
       <FlatList
-        data={data}
-        keyExtractor={(data) => data.id.toString()}
+        data={messages}
+        keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) => (
           <ListItem
             title={item.title}
-            subTitle={item.desc}
+            subTitle={item.description}
             image={item.image}
+            onPress={() => console.log("Message selected", item)}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => handleDelete(item)} />
+            )}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../assets/mosh.jpg"),
+            },
+          ]);
+        }}
       />
     </Screen>
   );
-};
-
-export default MessagesScreen;
+}
 
 const styles = StyleSheet.create({});
+
+export default MessagesScreen;
